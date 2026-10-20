@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BioRipple: trace where every experiment leads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="ann">Interactive demo with fictional data. <a href="#workspace">Try the impact trace</a></div>
+<header><div class="wrap nav">
+<a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#3EE0D0" stroke-width="2"><circle cx="15" cy="15" r="3" fill="#3EE0D0"/><circle cx="15" cy="15" r="8"/><circle cx="15" cy="15" r="13" stroke="#8B7CFF"/></svg>BioRipple</a>
+<button id="burger" class="ico" aria-label="Open menu" aria-expanded="false">☰</button>
+<nav class="links" id="links"><a href="#product">Product</a><a href="#features">Features</a><a href="#workspace">Research workspace</a><a href="#how">How it works</a><a href="#cases">Use cases</a><a href="#faq">FAQ</a><button class="ico t" id="theme" aria-label="Toggle theme">◐</button><a class="btn sm" href="#workspace">Explore BioRipple</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap hgrid">
+<div><h1>Your research doesn’t stop at one experiment.</h1>
+<p>Trace dependencies, uncover downstream impacts, and understand the evidence connecting your scientific work.</p>
+<div class="row"><a class="btn" href="#workspace">Explore the network</a><a class="btn ghost" href="#how">See how it works</a></div>
+<p style="font-size:14px;margin-top:22px">Research dependencies, made visible.</p></div>
+<div class="gbox"><svg class="g" id="hg" viewBox="0 0 820 420" role="img" aria-label="Illustrative research network"></svg><div class="cap" id="hcap">Click any node to see what it connects to. Illustrative data.</div></div>
+</div></div>
+
+<section id="product"><div class="wrap">
+<h2>One small change can affect an entire chain of research.</h2>
+<p class="mut" style="max-width:60ch">Every experiment creates a ripple. BioRipple shows where it goes and how well each link is supported.</p>
+<div class="three"><div><h3>Hidden dependencies</h3><p class="mut">Experiments, datasets and analyses depend on each other in ways nobody has written down in one place.</p></div><div><h3>Results reused after things change</h3><p class="mut">A protocol or reagent is revised, and downstream results keep circulating without a second look.</p></div><div><h3>Manual impact reviews</h3><p class="mut">Working out what is affected by hand takes days. BioRipple traverses the graph and lists what to review first.</p></div></div>
+</div></section>
+
+<section id="features"><div class="wrap"><h2>Everything a research change touches, in one place.</h2><div class="fl">
+<div><h3>Dependency graph</h3><p class="mut">Artifacts are nodes; reliance flows from upstream to downstream. Search, filter, zoom and pan.</p></div>
+<div><h3>Impact tracing</h3><p class="mut">Downstream and upstream traversal that records a dependency path to every artifact and survives cycles.</p></div>
+<div><h3>Evidence tracking</h3><p class="mut">Each relationship shows its supporting record, or says plainly that none exists.</p></div>
+<div><h3>Uncertainty labels</h3><p class="mut">Verified, supported, inferred, needs review or unverified. No invented probabilities.</p></div>
+<div><h3>Review checklist</h3><p class="mut">Ranked by depth, status and evidence, with the reason shown. Mark items open, in review, completed or not applicable.</p></div>
+<div><h3>CSV report</h3><p class="mut">Copy the full impact report with paths, evidence, priority and review status.</p></div></div>
+<p class="note">On the roadmap, not in this build: accounts and team roles, CSV/JSON import, version comparison and the Ripple Assistant.</p></div></section>
+<section id="workspace" style="padding-top:0"><div class="wrap">
+<h2>Trace the ripple yourself.</h2>
+<p class="mut" style="max-width:62ch">Select a node, then trace its downstream impact. Results come from a real graph traversal over the illustrative workspace below, not a canned answer.</p>
+<div class="ws">
+<div class="bar"><input id="q" type="search" placeholder="Search artifacts" aria-label="Search artifacts"><select id="sf" aria-label="Filter by relationship status"><option value="all">All relationships</option></select><span id="chips"></span><button class="btn sm ghost" id="reset" style="color:var(--fg)">Reset demo</button></div>
+<div class="wgrid"><div><div class="gv"><svg class="g" id="wg" viewBox="0 0 820 420" role="img" aria-label="Research dependency graph"></svg></div>
+<div class="zc"><button id="zi">Zoom in</button><button id="zo">Zoom out</button><button id="zf">Fit to view</button></div>
+<div class="leg" id="leg"></div><div class="note">Arrows point from upstream to downstream: upstream → downstream. A connection shows reliance, not proven biological causation.</div></div>
+<div class="pn" id="panel"></div></div>
+<div id="out"></div>
+</div></div></section>
+
+<section id="how" style="background:var(--card)"><div class="wrap"><h2>Connect, trace, evaluate.</h2>
+<div class="steps"><div><h3>1. Connect</h3><p class="mut">Create research artifacts and the dependencies between them.</p></div><div><h3>2. Trace</h3><p class="mut">Follow relationships downstream or upstream from any artifact.</p></div><div><h3>3. Evaluate</h3><p class="mut">Review evidence, uncertainty and the work that may be affected.</p></div></div></div></section>
+
+<section id="cases"><div class="wrap"><h2>Built for the changes labs actually make.</h2>
+<div class="uc"><span>Wet-lab experiments</span><span>Protocol changes</span><span>Reagent substitutions</span><span>Bioinformatics pipelines</span><span>Dataset revisions</span><span>Reproducibility reviews</span><span>Research handoffs</span><span>Collaborative projects</span></div></div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap"><h2>Questions, answered plainly.</h2>
+<details><summary>What is BioRipple?</summary><p>A research dependency tool that shows how a change to one artifact may affect connected work downstream.</p></details>
+<details><summary>Does BioRipple prove scientific causation?</summary><p>No. It maps recorded dependencies. A flagged item is potentially affected and needs scientific review, not automatically invalid.</p></details>
+<details><summary>How does it handle uncertainty?</summary><p>Every relationship carries a status (verified, supported, inferred, needs review, unverified) and shows whether evidence exists. No probabilities are invented.</p></details>
+<details><summary>Is the demo using real experimental data?</summary><p>No. Everything here is fictional and illustrative.</p></details>
+<details><summary>Can it replace a laboratory information management system?</summary><p>No. It sits alongside your records and focuses on dependencies and review.</p></details>
+<details><summary>Can I import data or collaborate with a team?</summary><p>This preview is a single-page demo. Import, accounts and team roles are not part of it yet.</p></details>
+</div></section>
+
+<section class="cta"><div class="wrap"><h2>See the full picture behind every experiment.</h2><div class="row"><a class="btn" href="#workspace">Explore BioRipple</a></div></div></section>
+</main>
+<footer><div class="wrap"><div><strong style="color:#F3F6FB">BioRipple</strong><br>Every experiment creates a ripple. Trace where it leads.</div><div><a href="#product">Product</a><a href="#features">Features</a><a href="#cases">Use cases</a><a href="#faq">FAQ</a><a href="#top">Documentation (placeholder)</a><a href="#top">Contact (placeholder)</a><a href="#top">Privacy</a><a href="#top">Terms</a></div></div></footer>
+
+<script src="script.js"></script></body></html>
